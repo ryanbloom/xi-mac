@@ -432,6 +432,28 @@ class AppDelegate: NSObject, NSApplicationDelegate, XiClient {
         }
     }
 
+    // Menu items will only adjust the font size within this range.
+    // Does not restrict the font size specified in the config file.
+    static let (minFontSize, maxFontSize): (CGFloat, CGFloat) = (8, 96)
+
+    func setFontSize(_ size: CGFloat) {
+        let changes = ["font_size": size]
+        let params = ["domain": "general", "changes": changes] as [String: Any]
+        dispatcher?.coreConnection.sendRpcAsync("modify_user_config", params: params)
+    }
+
+    @IBAction func increaseFontSize(_ sender: NSMenuItem) {
+        if textMetrics.font.pointSize < AppDelegate.maxFontSize {
+            setFontSize(textMetrics.font.pointSize + 1)
+        }
+    }
+
+    @IBAction func decreaseFontSize(_ sender: NSMenuItem) {
+        if textMetrics.font.pointSize > AppDelegate.minFontSize {
+            setFontSize(textMetrics.font.pointSize - 1)
+        }
+    }
+
     //- MARK: - helpers
 
     /// returns the NSDocument corresponding to the given viewIdentifier

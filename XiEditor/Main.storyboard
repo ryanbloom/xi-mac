@@ -1058,6 +1058,23 @@ Gw
                                                 <action selector="runToolbarCustomizationPalette:" target="7er-QZ-amI" id="JVY-tW-8hY"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Font Size" id="KDj-vt-WXs">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Font Size" id="NXC-kH-cvX">
+                                                <items>
+                                                    <menuItem title="Increase" alternate="YES" keyEquivalent="+" id="LI8-I8-NE0" userLabel="Indent">
+                                                        <connections>
+                                                            <action selector="increaseFontSize:" target="azf-ih-6fI" id="qo8-1o-VgY"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Decrease" keyEquivalent="-" id="b6M-J0-KLC" userLabel="Unindent">
+                                                        <connections>
+                                                            <action selector="decreaseFontSize:" target="azf-ih-6fI" id="vJN-bt-wOB"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
